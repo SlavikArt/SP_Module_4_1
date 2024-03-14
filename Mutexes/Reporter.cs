@@ -44,7 +44,7 @@
                 thread.Join();
         }
 
-        void GenerateRandomNumbers()
+        private void GenerateRandomNumbers()
         {
             Random rand = new Random();
 
@@ -59,7 +59,7 @@
             mutex.ReleaseMutex();
         }
 
-        void FindPrimes()
+        private void FindPrimes()
         {
             mutex.WaitOne();
             var numbers = File.ReadAllLines(task1Path).Select(int.Parse).ToList();
@@ -72,7 +72,7 @@
             mutex.ReleaseMutex();
         }
 
-        void FindPrimesEndingWith7()
+        private void FindPrimesEndingWith7()
         {
             mutex.WaitOne();
             var primes = File.ReadAllLines(task2Path).Select(int.Parse).ToList();
@@ -85,7 +85,7 @@
             mutex.ReleaseMutex();
         }
 
-        void GenerateReport()
+        private void GenerateReport()
         {
             mutex.WaitOne();
             var file1 = File.ReadAllLines(task1Path);
